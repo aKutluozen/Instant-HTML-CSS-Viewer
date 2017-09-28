@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="instantHTML">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Instant HTML and CSS viewer application">
+        <meta name="author" content="Ali Kutluozen">
+        <title>Instant HTML/CSS Viewer</title>
+        
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-sanitize.min.js"></script>
+        <script src="https://use.fontawesome.com/077fa8d25e.js"></script>
+        <script src="app.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" ><<i class="fa fa-html5"></i><i class="fa fa-css3"></i>/> Instant HTML/CSS Viewer </a>
+                </div>  
+            </div>
+        </nav>
+
+        <div class="container" ng-controller="mainController" ng-cloak>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading text-center"><i class="fa fa-html5"></i> HTML:</div>
+                        <div class="panel-body">
+                            <textarea class="form-control" rows="8" id="comment" ng-model="code"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading text-center"><i class="fa fa-css3"></i> CSS:</div>
+                        <div class="panel-body">
+                            <textarea class="form-control" rows="8" id="comment" ng-model="styling"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center"><i class="fa fa-file-code-o"></i> Result:</div>
+                        <div class="panel-body">
+                            <style ng-bind-html="styling | noCarriage"></style>
+                            <div ng-bind-html="code">{{ code | uppercase }} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container text-center">
+                <span class="text-muted">Instant HTML/CSS Viewer by Ali Kutluozen - January 2017 - </span>
+                <span class="text-muted"><a href="http://www.alikutluozen.com" target="_blank">www.alikutluozen.com</a></span>
+            </div>
+        </footer>
+    </body>
+</html>
+
+
